@@ -1,10 +1,10 @@
-
 export const RECEIVE_RESULT = 'RECEIVE_RESULT';
 export const REMOVE_RESULT = 'REMOVE_RESULT';
 
-export const receiveResult = (result) => ({
+export const receiveResult = (result, id) => ({
   type: RECEIVE_RESULT,
-  result
+  result,
+  id
 })
 
 export const removeResult = (id) => ({

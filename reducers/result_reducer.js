@@ -7,10 +7,10 @@ const ResultReducer = (state = {}, action) => {
 
   switch(action.type){
     case RECEIVE_RESULT:
-      console.log("receive result");
+      newState[action.id] = action.result;
       return newState;
     case REMOVE_RESULT:
-      console.log("remove result");
+      newState = omit(newState, action.id)
       return newState;
     default:
       return state;
