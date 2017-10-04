@@ -1,7 +1,11 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import CalculatorInterface from './calculator_interface_container';
 
-const App = () => (
-  <div>I'm the react calculator app</div>
+const App = ({ store }) => (
+  <Provider store={ store }>
+    <CalculatorInterface />
+  </Provider>
 )
 
 export default App;

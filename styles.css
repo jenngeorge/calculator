@@ -1,0 +1,23 @@
+
+
+/*sidebar*/
+
+
+
+/*calculator*/
+.calculator-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+}
+
+.calculator-buttons li {
+  list-style: none;
+  height: 30px;
+  width: 100px;
+  text-align: center;
+}
+
+.calculator-buttons li:hover {
+  background-color: gray;
+}
