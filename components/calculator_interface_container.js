@@ -3,7 +3,7 @@ import {receiveResult} from '../actions';
 import CalculatorInterface from './calculator_interface';
 
 const mapDispatchToProps = dispatch => ({
-  receiveResult: result => dispatch(receiveResult(result))
+  receiveResult: (result, id) => dispatch(receiveResult(result, id))
 });
 
 export default connect(

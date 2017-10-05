@@ -1,4 +1,5 @@
 import React from 'react';
+import Results from './results_container';
 
 class CalculatorInterface extends React.Component {
   constructor(props){
@@ -10,6 +11,10 @@ class CalculatorInterface extends React.Component {
       error: false
     };
   };
+
+  sendValToCalculator(val){
+    this.setState({current:this.state.current + val, error: false});
+  }
 
   addElement(el){
     if (el === "="){
@@ -37,9 +42,10 @@ class CalculatorInterface extends React.Component {
   }
 
   saveTotal(){
-    const total = doMath(this.state.current);
+    const total = this.doMath(this.state.current);
+    const uniqueId = new Date().getTime();
     this.setState({current: total}, () => {
-      this.props.receiveResult({val: total, note: this.state.note});
+      this.props.receiveResult({val: total, note: this.state.note}, uniqueId);
     });
   }
 
@@ -63,15 +69,19 @@ class CalculatorInterface extends React.Component {
 
     return (
       <section>
+        < Results sendValToCalculator={this.sendValToCalculator.bind(this)} />
         <section className="calculator-container">
           {errorDiv}
           <div className="calculator-top">
             <div className="calculator-window">
               {this.state.current}
             </div>
-            <div className="clear-window" onClick={this.clearWindow.bind(this)}>
+            <button className="clear-window" onClick={this.clearWindow.bind(this)}>
               Clear
-            </div>
+            </button>
+            <button className="save-total" onClick={this.saveTotal.bind(this)}>
+              Save
+            </button>
           </div>
           <ul className="calculator-buttons">
             {buttonLis}
