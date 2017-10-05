@@ -49,7 +49,7 @@ class CalculatorInterface extends React.Component {
     const buttonStrings = ['7', '8', '9',  '+', '4', '5', '6', '-',
                             '1', '2', '3', '/', '0', '.', '=', 'x']
     const buttonLis = buttonStrings.map(el => (
-      <li key={el} onClick={that.addElement.bind(that, el)}>{el}</li>
+      <li key={el} className="calc-button" onClick={that.addElement.bind(that, el)}>{el}</li>
     ));
 
     let errorDiv;
