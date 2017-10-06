@@ -6,8 +6,7 @@ import {  RECEIVE_RESULT,
           receiveResult,
           removeResult } from '../actions';
 
-const middlewares = [ thunk ];
-const mockStore = configureMockStore(middlewares);
+const mockStore = configureMockStore([thunk]);
 
 describe('receiveResult', () => {
   const uniqueId = new Date().getTime();
