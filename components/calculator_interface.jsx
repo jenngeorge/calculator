@@ -13,7 +13,7 @@ class CalculatorInterface extends React.Component {
   };
 
   sendValToCalculator(val){
-    this.setState({current:this.state.current + val, error: false});
+    this.setState({current:this.state.current + val.toString(), error: false});
   }
 
   addElement(el){
@@ -38,7 +38,7 @@ class CalculatorInterface extends React.Component {
   }
 
   clearWindow(){
-    this.setState({current: ""})
+    this.setState({current: "", error: false})
   }
 
   saveTotal(){
@@ -47,6 +47,10 @@ class CalculatorInterface extends React.Component {
     this.setState({current: total}, () => {
       this.props.receiveResult({val: total, note: this.state.note}, uniqueId);
     });
+  }
+
+  noteChange(e){
+    this.setState({note: e.target.value});
   }
 
 
@@ -68,11 +72,16 @@ class CalculatorInterface extends React.Component {
 
 
     return (
-      <section>
+      <section className="calculator-container">
         < Results sendValToCalculator={this.sendValToCalculator.bind(this)} />
-        <section className="calculator-container">
+        <section className="calculator-inner">
           {errorDiv}
           <div className="calculator-top">
+            <label className="note-input">
+              Note:
+              <input type="text" value={this.state.note}
+                onChange={this.noteChange.bind(this)} />
+            </label>
             <div className="calculator-window">
               {this.state.current}
             </div>

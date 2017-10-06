@@ -1,22 +1,143 @@
+/*TODO: clean this up :( */
 
-/*sidebar*/
-
-
-
-/*calculator*/
-.calculator-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  width: 400px;
+body {
+  height: 100vh;
+  background-color: #f1f1f1;
+  font-family: 'Leitura News', TimesNewRoman, Times, serif;
 }
 
-.calculator-buttons li {
+body, div, section, ul {
+  box-sizing: border-box;
+}
+
+/*sidebar*/
+.sidebar-container {
+  background-color: #3bcdca;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  height: 400px;
+}
+
+.results-list {
+  margin: 10px 0 0 0;
+  padding: 0;
+  width: 200px;
+  height: 300px;
+  overflow: scroll;
+}
+
+.result-item {
   list-style: none;
-  height: 30px;
-  width: 100px;
+  background-color: white;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  overflow-wrap: break-word;
+}
+
+h1 {
+  color: white;
+  font-size: 20px;
   text-align: center;
 }
 
-.calculator-buttons li:hover {
+.use-result, .remove-result {
+  border-radius: 5px;
+  background-color: lightgray;
+}
+
+.use-result {
+  float: right;
+}
+
+.remove-result {
+  float: left;
+}
+
+.cf:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+
+/*calculator*/
+
+.calculator-container {
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.calculator-inner {
+  position: relative;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #ff8d15;
+  height: 400px;
+  font-size: 20px;
+}
+
+.calculator-window {
+  height: 40px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px;
+  max-width: 380px;
+  overflow: scroll;
+  overflow-wrap: break-word;
+}
+
+.note-input {
+  color: white;
+  margin: 10px;
+}
+
+.note-input input{
+  border-style: none;
+  margin-left: 10px;
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.calculator-buttons {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  justify-content: space-between;
+}
+
+button {
+  border-style: none;
+}
+
+.calculator-buttons li, .clear-window, .save-total {
+  list-style: none;
+  width: 60px;
+  text-align: center;
+  background-color: #3bcdca;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.calculator-buttons li:hover, .clear-window:hover, .save-total:hover {
   background-color: gray;
+}
+
+.error-message {
+  position: absolute;
+  color: red;
+  top: -50px;
+  text-align: center;
 }
